@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  BaseViewController.h
 //  LearnShare
 //
-//  Created by James on 16/8/26.
+//  Created by James on 16/8/28.
 //  Copyright © 2016年 james. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface BaseViewController : UIViewController
 
 @end
-

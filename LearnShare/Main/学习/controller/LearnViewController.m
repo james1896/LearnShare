@@ -1,18 +1,20 @@
 //
-//  ViewController.m
+//  LearnViewController.m
 //  LearnShare
 //
-//  Created by James on 16/8/26.
+//  Created by James on 16/8/28.
 //  Copyright © 2016年 james. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LearnViewController.h"
 #import "XNLoopBannerView.h"
-@interface ViewController ()<XNLoopBannerViewDelegate>
+//29 169 252
+@interface LearnViewController ()<XNLoopBannerViewDelegate>
 
 @end
-//29 169 252
-@implementation ViewController
+
+@implementation LearnViewController
+
 
 - (void)addBannerView{
     NSArray *imageUrlArray = @[@"http://www.feizl.com/upload2007/2012_04/120414144943121.jpg",
@@ -23,19 +25,30 @@
     XNLoopBannerView *bannerView = [[XNLoopBannerView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 175) imageUrls:imageUrlArray];
     bannerView.animationDuration = 5;
     bannerView.bannerDelegate = self;
-//    bannerView.placeholderImage
+    //    bannerView.placeholderImage
     
     [self.view addSubview:bannerView];
-
 }
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addBannerView];
+     [self addBannerView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
