@@ -1,25 +1,144 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KrH-M8-18W">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Base Tab Bar Controller-->
+        <scene sceneID="Z6v-TY-bkZ">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <tabBarController id="KrH-M8-18W" customClass="BaseTabBarController" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="FCG-U5-xkG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="q5n-O8-OkJ" kind="relationship" relationship="viewControllers" id="OHn-wE-5uG"/>
+                        <segue destination="4kI-ZP-gxp" kind="relationship" relationship="viewControllers" id="1TY-wZ-ROP"/>
+                        <segue destination="Wdo-Y1-UC8" kind="relationship" relationship="viewControllers" id="IQl-LT-cun"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gVG-ye-Hbp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24" y="508"/>
+        </scene>
+        <!--学习-->
+        <scene sceneID="EjR-ai-pJr">
+            <objects>
+                <navigationController id="q5n-O8-OkJ" customClass="BaseNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="学习" image="tab_icon_learn_normal" selectedImage="tab_icon_learn_pressed" id="i9T-xU-VDV"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="izb-Vy-dMO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="HCD-HL-rbI" kind="relationship" relationship="rootViewController" id="GcR-kY-AYC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oa6-AT-fEq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797" y="-300"/>
+        </scene>
+        <!--LearnShare-->
+        <scene sceneID="aM2-qh-sgk">
+            <objects>
+                <viewController id="HCD-HL-rbI" customClass="LearnViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="1wR-9d-Rdd"/>
+                        <viewControllerLayoutGuide type="bottom" id="1DC-nP-bU4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="7UL-F2-Wtc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="LearnShare" id="Tsj-4f-mqO"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fHB-OK-wo2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1580" y="-429"/>
+        </scene>
+        <!--动态-->
+        <scene sceneID="p6O-QQ-WEB">
+            <objects>
+                <navigationController id="4kI-ZP-gxp" customClass="BaseNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="动态" image="tab_icon_star_normal" selectedImage="tab_icon_star_pressed" id="fT7-Wg-J2R"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vDL-So-Zdn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BDF-aE-S34" kind="relationship" relationship="rootViewController" id="Ixi-84-OHB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcr-G8-ajP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="791" y="493"/>
+        </scene>
+        <!--LearnShare-->
+        <scene sceneID="wKG-WT-DXK">
+            <objects>
+                <viewController id="BDF-aE-S34" customClass="DiscoverViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tsA-4U-ysU"/>
+                        <viewControllerLayoutGuide type="bottom" id="sXG-2l-qv3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nQw-xp-tCp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="LearnShare" id="eCy-GK-IYn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2R-oy-YGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1628" y="508"/>
+        </scene>
+        <!--LearnShare-->
+        <scene sceneID="w99-Wj-Q2V">
+            <objects>
+                <viewController id="fsz-6I-gh9" customClass="MeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="acA-dX-MhA"/>
+                        <viewControllerLayoutGuide type="bottom" id="ahG-aU-Hld"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hPy-4M-26T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="LearnShare" id="1Dk-IP-2LV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jvz-02-HzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1659" y="1291"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="6VY-2E-5cN">
+            <objects>
+                <navigationController id="Wdo-Y1-UC8" customClass="BaseNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" image="tab_icon_me_normal" selectedImage="tab_icon_me_pressed" id="vv8-Vk-zXb"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GAj-5M-8xY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fsz-6I-gh9" kind="relationship" relationship="rootViewController" id="Yyp-6W-1GI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Wm-uN-b7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="791" y="1291"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_icon_learn_normal" width="27" height="27"/>
+        <image name="tab_icon_learn_pressed" width="27" height="27"/>
+        <image name="tab_icon_me_normal" width="27" height="27"/>
+        <image name="tab_icon_me_pressed" width="27" height="27"/>
+        <image name="tab_icon_star_normal" width="27" height="27"/>
+        <image name="tab_icon_star_pressed" width="27" height="27"/>
+    </resources>
 </document>
