@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString *CELL_IDENTIFIER = @"IdentifierXXCollectionViewCell";
+
 @interface XXCollectionViewCell : UICollectionViewCell
 
 @property(nonatomic,strong) UIColor *bottomLineColor;

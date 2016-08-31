@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "UIViewController+BaseNavigationController.h"
 @interface BaseViewController ()
 
 @end
@@ -16,7 +16,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+#warning 不知道为什么 放在baseTabbarController里面  不起作用
+
+    //去掉tabbar上面的黑线
+    NSArray  *tabArray=self.tabBarController.tabBar.subviews;
+    for ( id obj  in tabArray) {
+        if ([obj isKindOfClass:[UIImageView class]]) {
+            UIImageView *imageView=(UIImageView *) obj;
+            imageView.backgroundColor=[UIColor clearColor];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {

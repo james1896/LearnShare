@@ -89,7 +89,7 @@ static dispatch_queue_t get_m80_attributed_label_parse_queue() \
 
     if (self.backgroundColor == nil)
     {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor clearColor];
     }
     
     self.userInteractionEnabled = YES;

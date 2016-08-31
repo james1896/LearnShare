@@ -10,7 +10,7 @@
 #import "TimeModel.h"
 #import "UIView+SDAutoLayout.h"
 @interface TimeLineTableViewCell : UITableViewCell
-+(instancetype)cellWithTableView:(UITableView*)tableView;
++(instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView;
 @property (nonatomic, strong) TimeModel* model;
 
 @property (nonatomic, copy) void(^showallClickBlock)(NSIndexPath* indexPath);

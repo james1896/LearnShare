@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "M80AttributedLabelDefines.h"
+#import <UIKit/UIKit.h>
 
 void deallocCallback(void* ref);
 CGFloat ascentCallback(void *ref);

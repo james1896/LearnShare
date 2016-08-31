@@ -10,4 +10,7 @@
 
 @interface Base_Root_TableViewCell : UITableViewCell
 
+@property(nonatomic,copy) NSString *title;
+@property(nonatomic,copy) NSString *promptTitle;
+
 @end

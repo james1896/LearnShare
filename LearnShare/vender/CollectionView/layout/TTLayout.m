@@ -58,7 +58,7 @@
         //初始化好每列的高度
         for (NSInteger i = 0; i < self.lineNumber ; i++) {
             
-            [_dicOfheight setObject:@(self.sectionInset.top) forKey:[NSString stringWithFormat:@"%ld",i]];
+            [_dicOfheight setObject:@(self.sectionInset.top) forKey:[NSString stringWithFormat:@"%ld",(long)i]];
             
             }
         //得到每个item的属性值进行存储

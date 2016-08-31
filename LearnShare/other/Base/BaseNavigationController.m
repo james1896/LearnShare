@@ -6,32 +6,52 @@
 //  Copyright © 2016年 james. All rights reserved.
 //
 
-#import "BaseNavgationController.h"
+#import "BaseNavigationController.h"
 
-@interface BaseNavgationController ()
+@interface BaseNavigationController ()
 
 @end
 
-@implementation BaseNavgationController
+@implementation BaseNavigationController
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+#pragma mark -- add buttonItem
+
+- (void)addThemeNavigationBackItemWithTitle:(NSString *)itemTitle{
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [backBtn setBackgroundImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
+    [backBtn setTitle:(itemTitle == nil?@"返回":itemTitle) forState:UIControlStateNormal];
+    backBtn.frame = CGRectMake(0, 0, 60, 35);
+    backBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [backBtn addTarget:self action:@selector(popBack:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
     
-  
+    self.topViewController.navigationItem.leftBarButtonItem = item;
+    
+    //解决自定义nav按钮后  返回手势消失问题
+    self.interactivePopGestureRecognizer.delegate=(id)self.topViewController;
 }
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    //设置nav颜色
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:29/255.0 green:169/255.0 blue:252/255.0 alpha:1]];
-  
-    //去掉nav下面的黑线
-       self.navigationBar.translucent = NO;
+
+- (void)popBack:(UIBarButtonItem *)item {
+    [self popViewControllerAnimated:YES];
+}
+
+#pragma mark --
+//设置nav的背景色为透明
+- (void)setNavBackgroundClear{
+    self.navigationController.navigationBar.translucent = YES;
+    UIColor *color = [UIColor clearColor];
+    CGRect rect = CGRectMake(0, 0, 320, 64);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.clipsToBounds = YES;
 }
 
 - (void)cancelNavigationBarTranslucentAndBottomBlackLine {
-    //去掉nav默认的透明效果 这个属性会导致代码编写的view的y值 差64
-    self.navigationBar.translucent = NO;
     //修改navBar底部的黑线
     if ([self.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
         NSArray *list=self.navigationBar.subviews;
@@ -48,6 +68,31 @@
             }
         }
     }
+}
+
+#pragma mark -- lift cycle
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    //去掉nav默认的透明效果 这个属性会导致代码编写的view的y值 差64
+    self.navigationBar.translucent = NO;
+    
+    //修改navBar底部的黑线
+    [self cancelNavigationBarTranslucentAndBottomBlackLine];
+    
+    //设置title为白色  字体大小
+    [self.navigationBar setTitleTextAttributes:@{
+                                                 NSForegroundColorAttributeName:[UIColor whiteColor],
+                                                 NSFontAttributeName:[UIFont fontWithName:@"Chivo-Italic" size:20] }];
+    
+    
+    //设置nav颜色
+    [[UINavigationBar appearance] setBarTintColor:THEME_BACKGROUND_COLOR];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -66,12 +111,8 @@
 
 @end
 
-@implementation UIViewController (MyNavigationController)
-
--(BaseNavgationController *)MyNavigationController
-{
-    if ([self.navigationController isMemberOfClass:[BaseNavigationController class]]) {
-        return (BasicNavigationController*)self.navigationController;
-    }
-    return nil;
-}
+//@implementation UIViewController (MyNavigationController)
+//
+//
+//
+//@end

@@ -14,11 +14,17 @@
 
 @implementation BaseTabBarController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tabBar.tintColor = THEME_BACKGROUND_COLOR;
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

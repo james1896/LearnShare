@@ -48,6 +48,10 @@
 @property(nonatomic) CGRect pageControlFrame;
 @property(nonatomic) float pageControlPace; //default is 5
 //  object in "imageUrls" must be kind of NSString or NSURL class"
+
+
+@property(nonatomic,strong) NSArray *imageUrls;
+
 - (instancetype)initWithFrame:(CGRect)frame imageUrls:(NSArray *)imageUrls;
 - (void)reloadWithImageUrls:(NSArray *)imageUrls;
 

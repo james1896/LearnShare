@@ -25,15 +25,14 @@ CGFloat max_content_height;
 @end
 @implementation TimeLineTableViewCell
 
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)dequeueReusableCellWithTableView:(UITableView *)tableView{
     static NSString* const identifier = @"timeLine";
     TimeLineTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[TimeLineTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        cell.backgroundColor = color(31, 32, 33);
+//        cell.backgroundColor = color(31, 32, 33);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    
     return cell;
 }
 
@@ -70,7 +69,7 @@ CGFloat max_content_height;
     UILabel* contentLB = [[UILabel alloc] init];
     self.contentLB = contentLB;
     contentLB.font = [UIFont systemFontOfSize:14];
-    contentLB.textColor = color(115, 115, 115);
+//    contentLB.textColor = color(115, 115, 115);
     contentLB.numberOfLines = 4;
     [self.contentView addSubview:contentLB];
     [contentLB mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -198,16 +197,10 @@ CGFloat max_content_height;
     [self.showAllButton setTitle:self.model.isShowAll ? @"收起":@"全文" forState:UIControlStateNormal];
     
     self.showallClickBlock(self.sd_indexPath);
-    
-
-
 }
 
 -(void)commentClick{
     NSLog(@"%s",__func__);
-    
-    
-    
 }
 
 -(void)likeClick{

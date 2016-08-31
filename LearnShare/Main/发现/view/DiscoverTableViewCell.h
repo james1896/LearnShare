@@ -6,8 +6,11 @@
 //  Copyright © 2016年 james. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Base_Root_TableViewCell.h"
 
-@interface DiscoverTableViewCell : UITableViewCell
+static NSString *CELL_IDENTIFIER = @"IdentifierDiscoverTableViewCell";
+
+@interface DiscoverTableViewCell : Base_Root_TableViewCell
+
 
 @end

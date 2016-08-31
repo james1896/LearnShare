@@ -10,6 +10,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/SDWebImagePrefetcher.h>
 
+#import "M80AttributedLabel.h"
 
 ////////////////////////////////////////////////////////////       XNLoopBannerViewCell         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -47,7 +48,7 @@
     
     UILabel *titleLab;
      UIButton *readButton;
-    UITextView *contentView;
+    M80AttributedLabel *contentView;
     
     
     XNLoopBannerView *superView;
@@ -61,33 +62,41 @@
         float width = self.bounds.size.width;
         float height = self.bounds.size.height;
         float pace = 15;
-        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
         
-        UIView *upLine = [[UIView alloc]initWithFrame:CGRectMake(pace, height/5, width-pace*2, 2)];
+        UIView *upLine = [[UIView alloc]initWithFrame:CGRectMake(pace, height/5, width-pace*2, 1)];
         upLine.backgroundColor = [UIColor lightGrayColor];
-        UIView *downLine = [[UIView alloc]initWithFrame:CGRectMake(pace, height*4/5, width-pace*2, 2)];
+        UIView *downLine = [[UIView alloc]initWithFrame:CGRectMake(pace, height*4/5, width-pace*2, 1)];
         downLine.backgroundColor = [UIColor lightGrayColor];
         
         //titleLabel
-        titleLab = [[UILabel alloc]initWithFrame:CGRectMake(pace, 3, width-pace*2, height/5-3)];
+        titleLab = [[UILabel alloc]initWithFrame:CGRectMake(pace, 1, width-pace*2, height/5-3)];
         titleLab.numberOfLines = 2;
         titleLab.text = @"YOU DREAM VACATION";
         titleLab.textColor = [UIColor colorWithRed:253/255.0 green:205/255.0 blue:47/255.0 alpha:1];
          titleLab.textAlignment = NSTextAlignmentCenter;
-        [titleLab setFont:[UIFont fontWithName:@"Helvetica-Bold" size:15]];
+        [titleLab setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.5]];
         
         //contentView
-        contentView = [[UITextView alloc]initWithFrame:CGRectMake(pace, upLine.frame.origin.y, upLine.frame.size.width, height*3/5)];
-        contentView.backgroundColor = [UIColor clearColor];
+        contentView = [[M80AttributedLabel alloc]initWithFrame:CGRectMake(pace+2, upLine.frame.origin.y+upLine.frame.size.height, upLine.frame.size.width-4, height*3/5)];
         contentView.textColor = [UIColor whiteColor];
-        [contentView setContentInset:UIEdgeInsetsMake(-5, -8, -5, -8)];
-        contentView.textAlignment = NSTextAlignmentCenter;
-        contentView.text = @"If you want to experience clean water, picturesque and thrills near Manila, definitely this place is for you. Superb. This to remember: a, to bring camping equipment b. lots of water c. and food d. if necessary,  because this island do not have restrooms nor shelter e. a go bag f. snorkeling equipment";
+        contentView.lineSpacing = 0.5;
+        contentView.font = [UIFont systemFontOfSize:12.5];
+        contentView.paragraphSpacing = 0.0;
+//        contentView.textAlignment = NSTextAlignmentCenter;
+        contentView.text = @"在iOS7显示的时候会在顶部会出现一条黑线,如下图: 这时候就会影响了我们的界面。 我们可以有两种的解决办法,如果你的";
+//        contentView = [[UITextView alloc]initWithFrame:CGRectMake(pace-2, upLine.frame.origin.y+upLine.frame.size.height, upLine.frame.size.width+4, height*3/5)];
+//        contentView.backgroundColor = [UIColor clearColor];
+//        contentView.textColor = [UIColor whiteColor];
+////        [contentView setContentInset:UIEdgeInsetsMake(-5, -8, -5, -8)];
+//        contentView.textAlignment = NSTextAlignmentCenter;
+//        contentView.editable = NO;
+//        contentView.text = @"在iOS7显示的时候会在顶部会出现一条黑线,如下图: 这时候就会影响了我们的界面。 我们可以有两种的解决办法,如果你的";
 //            contentView.scrollEnabled = NO;
         //read button
         readButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [readButton setTitle:@"READ MORE" forState:UIControlStateNormal];
-       [readButton setFont: [UIFont systemFontOfSize:9]];
+        readButton.titleLabel.font = [UIFont systemFontOfSize:12.1];
         readButton.layer.cornerRadius = 2;
         readButton.frame = CGRectMake(pace, height*4/5+10, downLine.bounds.size.width, 20);
         [readButton addTarget:self action:@selector(readButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -104,6 +113,14 @@
     }
     
     return self;
+}
+
+- (void)setTitleString:(NSString *)titleString{
+    titleLab.text = titleString;
+}
+
+- (void)setContentString:(NSString *)contentString{
+    contentView.text = contentString;
 }
 
 - (void)readButton:(UIButton *)sender{
@@ -138,6 +155,10 @@ static NSString *CellIdentifier = @"XNLoopBannerViewCell";
 @implementation XNLoopBannerView
 
 @synthesize pageControl = _pageControl;
+
+- (void)setImageUrls:(NSArray *)imageUrls{
+    [self reloadWithImageUrls:imageUrls];
+}
 
 #pragma mark - Life Cycle
 - (void)dealloc {

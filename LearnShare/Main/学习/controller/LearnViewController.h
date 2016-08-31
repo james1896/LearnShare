@@ -6,8 +6,7 @@
 //  Copyright © 2016年 james. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface LearnViewController : UIViewController
+#import "BaseViewController.h"
+@interface LearnViewController:BaseViewController
 
 @end

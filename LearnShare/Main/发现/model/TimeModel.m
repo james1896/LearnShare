@@ -33,7 +33,8 @@ extern CGFloat max_content_height;
     for (NSInteger i = 0 ; i < 10; i ++) {
         TimeModel* m1 = [[TimeModel alloc] init];
         m1.name = nameArray[arc4random_uniform(10)];
-        m1.icon = [NSString stringWithFormat:@"%zd.jpg",arc4random_uniform(23)];
+//        m1.icon = [NSString stringWithFormat:@"%zd.jpg",arc4random_uniform(23)];
+         m1.icon = [NSString stringWithFormat:@"16.jpg"];
         m1.contentText = contentArray[arc4random_uniform(7)];
     
         NSInteger imageCount = arc4random_uniform(8);

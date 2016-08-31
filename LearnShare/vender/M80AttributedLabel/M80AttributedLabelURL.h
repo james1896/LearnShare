@@ -6,7 +6,8 @@
 //  Copyright (c) 2013年 www.xiangwangfeng.com. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+
+#import <UIKit/UIKit.h>
 #import "M80AttributedLabelDefines.h"
 
 
