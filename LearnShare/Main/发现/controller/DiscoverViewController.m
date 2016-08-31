@@ -9,19 +9,42 @@
 #import "DiscoverViewController.h"
 #import "DiscoverTableViewCell.h"
 #import "TimeLineViewController.h"
+#import "NewsViewController.h"
 
  NSString *identifierCell = @"discoverCell";
 
 @interface DiscoverViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) TimeLineViewController *timeLineController;
+@property(nonatomic,strong) NewsViewController *newsController;
+@property(nonatomic,strong) NSArray *dataArray;
+
 @end
 
 @implementation DiscoverViewController{
-    
+
 
 }
 
 #pragma mark --懒加载
+
+- (NSArray *)dataArray{
+    if(!_dataArray){
+        _dataArray = [[NSArray alloc]initWithObjects:
+                      @{@"title":@"学友圈",@"prompt":@"Share The Happiness Of Learning"},
+                      @{@"title":@"扫一扫",@"prompt":@"Scanning"},
+                      @{@"title":@"教育｜资讯",@"prompt":@"Education   News"},
+                      nil];
+    }
+    return _dataArray;
+}
+
+- (NewsViewController *)newsController{
+    if(!_newsController){
+        _newsController = [NewsViewController new];
+        _newsController.hidesBottomBarWhenPushed = YES;
+    }
+    return _newsController;
+}
 
 - (TimeLineViewController *)timeLineController{
     if(!_timeLineController){
@@ -32,7 +55,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.view.backgroundColor =  [UIColor colorWithRed:244/255.0 green:244/255.0 blue:245/255.0 alpha:1];
+
     UITableView *tab = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     tab.delegate = self;
     tab.dataSource = self;
@@ -45,7 +68,7 @@
 #pragma mark -- tableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return self.dataArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -58,14 +81,29 @@
     if(!cell){
         cell = [[DiscoverTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_IDENTIFIER];
     }
-   cell.title = @"学友圈";
-     cell.promptTitle = @"Share The Happiness Of Learning";
+    
+    NSDictionary *dict = self.dataArray[indexPath.row];
+    cell.title = [dict objectForKey:@"title"];
+    cell.promptTitle = [dict objectForKey:@"prompt"];
+
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
 
-    [self.navigationController pushViewController:self.timeLineController animated:YES];
+    switch (indexPath.row) {
+     
+        case 0:{
+             [self.navigationController pushViewController:self.timeLineController animated:YES];
+            break;
+        }
+        case 2:{
+            [self.navigationController pushViewController:self.newsController animated:YES];
+            break;
+        }
+            
+    }
+   
 }
 
 - (void)didReceiveMemoryWarning {
