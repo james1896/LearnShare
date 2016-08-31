@@ -75,12 +75,8 @@
 -(void)loadNewLeft{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.leftModleArray removeAllObjects];
-        
-        
         [self.leftModleArray addObjectsFromArray:[TimeModel models]];
-        
         [self.tableView reloadData];
-        
         [self.tableView.mj_header endRefreshing];
     });
     
@@ -95,9 +91,7 @@
 }
 #pragma mark -- UITableViewDataSource,UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
- 
         return self.leftModleArray.count;
- 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

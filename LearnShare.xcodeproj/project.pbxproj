@@ -56,6 +56,10 @@
 		1A58EC3F1D768FB6005B37BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A58EC3D1D768FB6005B37BD /* Main.storyboard */; };
 		1A58EC441D76A828005B37BD /* UIView+Attribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A58EC411D76A828005B37BD /* UIView+Attribute.m */; };
 		1A58EC451D76A828005B37BD /* UIViewController+BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A58EC431D76A828005B37BD /* UIViewController+BaseNavigationController.m */; };
+		1A58EC7A1D76D029005B37BD /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A58EC791D76D029005B37BD /* NewsViewController.m */; };
+		1A58EC7D1D76D26B005B37BD /* AcountSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A58EC7C1D76D26B005B37BD /* AcountSettingViewController.m */; };
+		1A58ECA61D776902005B37BD /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A58ECA51D776902005B37BD /* img1.jpg */; };
+		1A58ECAB1D77823A005B37BD /* NewTemplate_One.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A58ECAA1D77823A005B37BD /* NewTemplate_One.m */; };
 		1A841DDA1D72EEE5009D9089 /* DiscoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A841DD91D72EEE5009D9089 /* DiscoverTableViewCell.m */; };
 		1AA450291D73D24700D86962 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1AA450281D73D24700D86962 /* fonts */; };
 		1AA4502E1D73FE6000D86962 /* XXCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4502C1D73FE6000D86962 /* XXCollectionViewCell.m */; };
@@ -170,6 +174,13 @@
 		1A58EC411D76A828005B37BD /* UIView+Attribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Attribute.m"; sourceTree = "<group>"; };
 		1A58EC421D76A828005B37BD /* UIViewController+BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BaseNavigationController.h"; sourceTree = "<group>"; };
 		1A58EC431D76A828005B37BD /* UIViewController+BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BaseNavigationController.m"; sourceTree = "<group>"; };
+		1A58EC781D76D029005B37BD /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		1A58EC791D76D029005B37BD /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		1A58EC7B1D76D26B005B37BD /* AcountSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcountSettingViewController.h; sourceTree = "<group>"; };
+		1A58EC7C1D76D26B005B37BD /* AcountSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcountSettingViewController.m; sourceTree = "<group>"; };
+		1A58ECA51D776902005B37BD /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
+		1A58ECA91D77823A005B37BD /* NewTemplate_One.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTemplate_One.h; sourceTree = "<group>"; };
+		1A58ECAA1D77823A005B37BD /* NewTemplate_One.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTemplate_One.m; sourceTree = "<group>"; };
 		1A841DD81D72EEE5009D9089 /* DiscoverTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTableViewCell.h; sourceTree = "<group>"; };
 		1A841DD91D72EEE5009D9089 /* DiscoverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTableViewCell.m; sourceTree = "<group>"; };
 		1AA450281D73D24700D86962 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
@@ -390,11 +401,14 @@
 		1A40D8301D7294A000FC738F /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				1A40D85B1D72C7D300FC738F /* DiscoverViewController.h */,
+				1A40D85C1D72C7D300FC738F /* DiscoverViewController.m */,
+				1A58ECA51D776902005B37BD /* img1.jpg */,
 				1A153AEB1D751CB500F9BE7B /* 16.jpg */,
 				1A40D8311D7294A000FC738F /* TimeLineViewController.h */,
 				1A40D8321D7294A000FC738F /* TimeLineViewController.m */,
-				1A40D85B1D72C7D300FC738F /* DiscoverViewController.h */,
-				1A40D85C1D72C7D300FC738F /* DiscoverViewController.m */,
+				1A58EC781D76D029005B37BD /* NewsViewController.h */,
+				1A58EC791D76D029005B37BD /* NewsViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -438,6 +452,8 @@
 				1A153AF71D7527BA00F9BE7B /* MeViewController.m */,
 				1A58EC3A1D768C20005B37BD /* AboutUsViewController.h */,
 				1A58EC3B1D768C20005B37BD /* AboutUsViewController.m */,
+				1A58EC7B1D76D26B005B37BD /* AcountSettingViewController.h */,
+				1A58EC7C1D76D26B005B37BD /* AcountSettingViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -581,6 +597,8 @@
 				1A58EC411D76A828005B37BD /* UIView+Attribute.m */,
 				1A58EC421D76A828005B37BD /* UIViewController+BaseNavigationController.h */,
 				1A58EC431D76A828005B37BD /* UIViewController+BaseNavigationController.m */,
+				1A58ECA91D77823A005B37BD /* NewTemplate_One.h */,
+				1A58ECAA1D77823A005B37BD /* NewTemplate_One.m */,
 			);
 			path = expand;
 			sourceTree = "<group>";
@@ -695,6 +713,7 @@
 				1A58EC3F1D768FB6005B37BD /* Main.storyboard in Resources */,
 				1AA552141D6FDF4900FD4831 /* LaunchScreen.storyboard in Resources */,
 				1AA450291D73D24700D86962 /* fonts in Resources */,
+				1A58ECA61D776902005B37BD /* img1.jpg in Resources */,
 				1AA4502F1D73FE6000D86962 /* XXCollectionViewCell.xib in Resources */,
 				1AA552111D6FDF4900FD4831 /* Assets.xcassets in Resources */,
 				1A153AEC1D751CB500F9BE7B /* 16.jpg in Resources */,
@@ -785,6 +804,7 @@
 				1A40D8481D7294A000FC738F /* TimeLineTableViewCell.m in Sources */,
 				1A40D7EE1D72860A00FC738F /* MJRefreshConst.m in Sources */,
 				1A40D8451D7294A000FC738F /* TimeLineViewController.m in Sources */,
+				1A58ECAB1D77823A005B37BD /* NewTemplate_One.m in Sources */,
 				1A40D7E51D72860A00FC738F /* MJRefreshAutoNormalFooter.m in Sources */,
 				1A40D7E91D72860A00FC738F /* MJRefreshBackStateFooter.m in Sources */,
 				1A40D8011D7286A500FC738F /* TTLayout.m in Sources */,
@@ -796,8 +816,10 @@
 				1A40D8001D7286A500FC738F /* XNLoopBannerView.m in Sources */,
 				1A40D7F11D72860A00FC738F /* UIView+MJExtension.m in Sources */,
 				1A841DDA1D72EEE5009D9089 /* DiscoverTableViewCell.m in Sources */,
+				1A58EC7D1D76D26B005B37BD /* AcountSettingViewController.m in Sources */,
 				1A40D7E31D72860A00FC738F /* MJRefreshHeader.m in Sources */,
 				1A153AF51D75278C00F9BE7B /* MeTableViewCell.m in Sources */,
+				1A58EC7A1D76D029005B37BD /* NewsViewController.m in Sources */,
 				1A58EC3C1D768C20005B37BD /* AboutUsViewController.m in Sources */,
 				1A40D7EC1D72860A00FC738F /* MJRefreshStateHeader.m in Sources */,
 				1A40D7E01D72860A00FC738F /* MJRefreshBackFooter.m in Sources */,

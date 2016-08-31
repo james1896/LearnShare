@@ -10,4 +10,5 @@
 
 @interface MeTableViewCell : Base_Root_TableViewCell
 
+@property(nonatomic,copy) NSString *rightText;
 @end

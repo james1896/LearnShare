@@ -32,7 +32,7 @@
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(pace);
             make.top.equalTo(self).offset(13);
-//            make.bottom.equalTo(self).offset(-10);
+            make.bottom.equalTo(self).offset(-10);
         }];
         
         NSString *fonts =@"PingFangTC-Light";
@@ -43,17 +43,6 @@
         titleLabel.font =[UIFont fontWithName: fonts size:18];
         
         //        Share the happiness of his learning
-        //init PromptTitleLabel
-    
-        prompTtitleLabel = [UILabel new];
-        prompTtitleLabel.textColor = [UIColor colorWithRed:213/255.0 green:213/255.0 blue:213/255.0 alpha:1];
-        prompTtitleLabel.font = [UIFont fontWithName:fonts size:12];
-        [self addSubview:prompTtitleLabel];
-        
-        [prompTtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(pace);
-            make.top.equalTo(titleLabel.mas_bottom).offset(3);
-        }];
         
         //  init   --
         //        int width = 6;
@@ -87,10 +76,36 @@
     return self;
 }
 
+- (void)updateViewConstraints{
+    
+    // 告诉self.view约束需要更新
+    [self setNeedsUpdateConstraints];
+    [titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(24);
+        make.top.equalTo(self).offset(13);
+    }];
+    [prompTtitleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(24);
+        make.top.equalTo(titleLabel.mas_bottom).offset(3);
+    }];
+    
+//    [super updateViewConstraints];
+}
 
 #pragma mark -- SET  GET方法
 
 - (void)setPromptTitle:(NSString *)promptTitle{
+    
+    if(!prompTtitleLabel){
+        //init PromptTitleLabel
+        prompTtitleLabel = [UILabel new];
+        prompTtitleLabel.textColor = [UIColor colorWithRed:213/255.0 green:213/255.0 blue:213/255.0 alpha:1];
+        prompTtitleLabel.font = [UIFont fontWithName:@"GillSans-LightItalic" size:12];
+        [self addSubview:prompTtitleLabel];
+        
+    
+        [self updateViewConstraints];
+    }
     prompTtitleLabel.text = promptTitle;
 }
 

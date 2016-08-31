@@ -6,17 +6,17 @@
 //  Copyright © 2016年 james. All rights reserved.
 //
 
-#import "AccountSettingViewController.h"
+#import "AcountSettingViewController.h"
 
-@interface AccountSettingViewController ()
+@interface AcountSettingViewController ()
 
 @end
 
-@implementation AccountSettingViewController
+@implementation AcountSettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

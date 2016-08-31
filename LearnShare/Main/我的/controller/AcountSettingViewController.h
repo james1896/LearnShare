@@ -1,5 +1,5 @@
 //
-//  AccountSettingViewController.h
+//  AcountSettingViewController.h
 //  LearnShare
 //
 //  Created by James on 16/8/31.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AccountSettingViewController : UIViewController
+@interface AcountSettingViewController : UIViewController
 
 @end

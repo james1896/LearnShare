@@ -13,4 +13,6 @@ static NSString *CELL_IDENTIFIER = @"IdentifierXXCollectionViewCell";
 @interface XXCollectionViewCell : UICollectionViewCell
 
 @property(nonatomic,strong) UIColor *bottomLineColor;
+
+- (void)updateBottomLineColor;
 @end

@@ -10,6 +10,7 @@
 
 #import "MeTableViewCell.h"
 #import "AboutUsViewController.h"
+#import "AcountSettingViewController.h"
 @interface MeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -19,8 +20,6 @@
 #pragma mark -- lift cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    self.view.backgroundColor =  [UIColor colorWithRed:244/255.0 green:244/255.0 blue:245/255.0 alpha:1];
     UITableView *tab = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     tab.delegate = self;
     tab.dataSource = self;
@@ -39,7 +38,7 @@
 #pragma mark -- tableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -55,6 +54,19 @@
     
     switch (indexPath.row) {
         case 0:{
+            cell.title = @"账户设置";
+            cell.promptTitle = @"Acount Setting";
+            
+            cell.rightText = @"(未登录)";
+            break;
+        }
+        case 1:{
+        cell.title = @"当前版本";
+            cell.rightText = @"1.0.0";
+            break;
+        }
+            
+        case 2:{
             cell.title = @"关于我们";
             cell.promptTitle = @"About Us";
             break;
@@ -69,12 +81,21 @@
     UIViewController *controller = nil;
     switch (indexPath.row) {
         case 0:{
+            controller = [AcountSettingViewController new];
+            break;
+        }
+        case 1:{
+            
+            break;
+        }
+        case 2:{
             //关于我们
             controller = [AboutUsViewController new];
             controller.hidesBottomBarWhenPushed = YES;
           break;
         }
     }
+    if(controller)
     [self.navigationController pushViewController:controller animated:YES];
 }
 
