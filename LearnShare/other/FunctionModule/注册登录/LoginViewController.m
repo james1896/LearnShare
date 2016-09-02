@@ -11,7 +11,7 @@
 #import "RegisterViewController.h"
 
 #define RGB(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
-@interface LoginViewController ()<UITextFieldDelegate,M80AttributedLabelDelegate>
+@interface LoginViewController ()<M80AttributedLabelDelegate>
 @property(nonatomic,strong) UITextField *userField;
 @property(nonatomic,strong) UITextField *pwdField;
 
@@ -30,13 +30,22 @@
     //textfield
     self.userField = [UITextField new];
     self.userField.placeholder = @"User name";
-    self.userField.delegate = self;
+//    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc]initWithString:@"User name"];
+//    [placeholder addAttribute:NSForegroundColorAttributeName
+//                       value:[UIColor redColor]
+//                       range:NSMakeRange(0, @"User name".length)];
+//    [placeholder addAttribute:NSFontAttributeName
+//                       value:[UIFont fontNamesForFamilyName:THEME_FONT_STRING]
+//                       range:NSMakeRange(0, @"User name".length)];
+//    self.userField.attributedPlaceholder = placeholder;
+    
+    self.userField.tintColor= [UIColor whiteColor];//设置光标颜色
     self.userField.textAlignment = NSTextAlignmentCenter;
-    self.userField.font = [UIFont systemFontOfSize:20];
+ 
     
     self.pwdField = [UITextField new];
     self.pwdField.placeholder = @"Password";
-    self.pwdField.delegate = self;
+  
     [self.pwdField setSecureTextEntry:YES];
     self.pwdField.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview: [self createFormWithTextField:self.userField atIndex:0]];

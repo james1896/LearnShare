@@ -7,7 +7,7 @@
 //
 
 #import "BaseNavigationController.h"
-
+#import "Masonry.h"
 @interface BaseNavigationController ()
 
 @end
@@ -18,15 +18,35 @@
 
 - (void)addThemeNavigationBackItemWithTitle:(NSString *)itemTitle{
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [backBtn setBackgroundImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
-    [backBtn setTitle:(itemTitle == nil?@"返回":itemTitle) forState:UIControlStateNormal];
-    backBtn.frame = CGRectMake(0, 0, 60, 35);
+//    backBtn.backgroundColor = [UIColor blueColor];
+    [backBtn setImage:[UIImage imageNamed:@"return_left_blue"] forState:UIControlStateNormal];
+    [backBtn setTitle:(itemTitle == nil?@"":itemTitle) forState:UIControlStateNormal];
+    backBtn.frame = CGRectMake(0, 0, 30, 26);
     backBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [backBtn addTarget:self action:@selector(popBack:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    space.width = -5;
+//    self.topViewController.navigationItem.leftBarButtonItem = item;
     
-    self.topViewController.navigationItem.leftBarButtonItem = item;
     
+ 
+    
+ 
+//    btnLab.backgroundColor = [UIColor yellowColor];
+    UIView *itemView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 120, 30)];
+//    itemView.backgroundColor = [UIColor yellowColor];
+    
+       UILabel *btnLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 8, 120, 25)];
+    btnLab.text = @"LearnShare";
+    btnLab.textColor = [UIColor whiteColor];
+//    btnLab.backgroundColor = [UIColor blueColor];
+    btnLab.font = [UIFont fontWithName:@"Zapfino" size:12];
+    [itemView addSubview:btnLab];
+    
+    UIBarButtonItem *itemLab = [[UIBarButtonItem alloc]initWithCustomView:itemView];
+    
+    self.topViewController.navigationItem.leftBarButtonItems = @[space,item,itemLab];
     //解决自定义nav按钮后  返回手势消失问题
     self.interactivePopGestureRecognizer.delegate=(id)self.topViewController;
 }

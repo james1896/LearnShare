@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.titleInfo = @"用户注册";
+    
     self.userField = [self createTextField];
     self.userField.placeholder = @"User name";
     self.emailField = [self createTextField];
@@ -30,6 +32,8 @@
     self.confirmPwdField = [self createTextField];
     self.confirmPwdField.placeholder = @"Password Again";
     
+    
+    self.draw_offset_y = 150;
    [self.view addSubview: [self createFormWithTextField:self.userField atIndex:0]];
     [self.view addSubview:[self createFormWithTextField:self.emailField atIndex:1]];
     [self.view addSubview:[self createFormWithTextField:self.pwdField atIndex:2]];

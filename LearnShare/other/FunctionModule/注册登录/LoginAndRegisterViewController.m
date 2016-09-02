@@ -18,6 +18,14 @@
     UIButton *returnButon;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.draw_offset_y = 120;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -108,7 +116,7 @@
     
     //return button
     returnButon = [UIButton buttonWithType:UIButtonTypeCustom];
-    [returnButon setImage:[UIImage imageNamed:@"return"] forState:UIControlStateNormal];
+    [returnButon setImage:[UIImage imageNamed:@"return_left_black"] forState:UIControlStateNormal];
     [returnButon addTarget:self action:@selector(returnButtonPress:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:returnButon];
     
@@ -162,11 +170,10 @@
     
     //添加 背景view
     UIView *groundView = [UIView new];
-    int offsetY = 120;
     int form = 60;
     [self.view addSubview:groundView];
     [groundView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(groundView.superview).offset(-offsetY + index*form);
+        make.centerY.equalTo(groundView.superview).offset(-self.draw_offset_y + index*form);
         make.centerX.equalTo(groundView.superview);
         
         make.width.mas_equalTo(SCREEN_WIDTH- 30*2);

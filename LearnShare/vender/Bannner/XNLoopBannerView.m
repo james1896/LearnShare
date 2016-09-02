@@ -62,7 +62,7 @@
         float width = self.bounds.size.width;
         float height = self.bounds.size.height;
         float pace = 15;
-        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
         
         UIView *upLine = [[UIView alloc]initWithFrame:CGRectMake(pace, height/5, width-pace*2, 1)];
         upLine.backgroundColor = [UIColor lightGrayColor];

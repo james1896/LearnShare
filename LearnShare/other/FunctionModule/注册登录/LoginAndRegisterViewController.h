@@ -13,6 +13,11 @@
 #import "M80AttributedLabel.h"
 @interface LoginAndRegisterViewController : UIViewController
 
+//  在掉用createFormWithTextField:(UITextField *)textField atIndex:(NSInteger)index    方法时候
+//  第一个试图位于当前主视图Y中心轴 向上偏移的位置
+@property(nonatomic) int draw_offset_y;
+
+//title
 @property(nonatomic,copy) NSString *titleInfo;
 
 @property(nonatomic,copy) NSString *buttonTitle;
