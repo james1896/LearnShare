@@ -194,6 +194,7 @@
 //
 //
     //添加textfield
+     textField.tintColor= [UIColor lightGrayColor];//设置光标颜色
     [groundView addSubview:textField];
         [textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(lineView.mas_top);

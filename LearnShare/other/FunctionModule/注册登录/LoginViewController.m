@@ -39,7 +39,7 @@
 //                       range:NSMakeRange(0, @"User name".length)];
 //    self.userField.attributedPlaceholder = placeholder;
     
-    self.userField.tintColor= [UIColor whiteColor];//设置光标颜色
+   
     self.userField.textAlignment = NSTextAlignmentCenter;
  
     
