@@ -10,5 +10,6 @@
 
 @interface UIView (Attribute)
 
+-(CGFloat)xx_height;
 - (CGFloat)xx_bottom;
 @end

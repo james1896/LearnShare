@@ -30,9 +30,9 @@
 - (NSArray *)dataArray{
     if(!_dataArray){
         _dataArray = [[NSArray alloc]initWithObjects:
-                      @{@"title":@"学友圈",@"prompt":@"Share The Happiness Of Learning"},
-                      @{@"title":@"扫一扫",@"prompt":@"Scanning"},
-                      @{@"title":@"教育｜资讯",@"prompt":@"Education   News"},
+                      @{@"title":@"学友圈",                @"prompt":@"Share The Happiness Of Learning"},
+                      @{@"title":@"扫一扫",                @"prompt":@"Scanning"},
+                      @{@"title":@"教育｜资讯",         @"prompt":@"Education   News"},
                       nil];
     }
     return _dataArray;

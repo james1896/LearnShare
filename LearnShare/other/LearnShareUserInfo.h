@@ -12,6 +12,7 @@
 
 @property(nonatomic,strong) NSString *userName;
 
+@property(nonatomic) BOOL isLogin;
 
 +(LearnShareUserInfo *)shareInstance;
 @end

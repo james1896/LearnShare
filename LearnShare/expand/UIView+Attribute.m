@@ -10,6 +10,10 @@
 
 @implementation UIView (Attribute)
 
+
+- (CGFloat)xx_height{
+    return self.bounds.size.height;
+}
 - (CGFloat)xx_bottom{
     return self.frame.origin.y+self.frame.size.height;
 }

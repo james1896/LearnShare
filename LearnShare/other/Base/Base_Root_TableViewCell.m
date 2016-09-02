@@ -40,7 +40,7 @@
         fonts = @"GillSans-LightItalic";
         //    fonts = @"Chivo-Italic";
         titleLabel.textColor = THEME_FONT_COLOR;
-        titleLabel.font =[UIFont fontWithName: fonts size:18];
+        titleLabel.font =[UIFont fontWithName: THEME_FONT_STRING size:18];
         
         //        Share the happiness of his learning
         
@@ -100,7 +100,7 @@
         //init PromptTitleLabel
         prompTtitleLabel = [UILabel new];
         prompTtitleLabel.textColor = [UIColor colorWithRed:213/255.0 green:213/255.0 blue:213/255.0 alpha:1];
-        prompTtitleLabel.font = [UIFont fontWithName:@"GillSans-LightItalic" size:12];
+        prompTtitleLabel.font = [UIFont fontWithName:THEME_FONT_STRING size:12];
         [self addSubview:prompTtitleLabel];
         
     

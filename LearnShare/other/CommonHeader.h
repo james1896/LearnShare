@@ -31,6 +31,11 @@
 #define IOS_VERSION                                                                                     ［[UIDevice currentDevice] systemVersion] floatValue]
 #define CurrentSystemVersion                                                                        [UIDevice currentDevice] systemVersion]
 
+
+
+#pragma mark -- 字体 类
+#define THEME_FONT_STRING                                                                   @"GillSans-LightItalic"
+
 #pragma mark -- 颜色类
 
 // rgb颜色转换（16进制->10进制）

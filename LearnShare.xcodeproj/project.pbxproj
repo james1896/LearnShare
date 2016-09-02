@@ -61,6 +61,7 @@
 		1A58ECA61D776902005B37BD /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A58ECA51D776902005B37BD /* img1.jpg */; };
 		1A58ECAB1D77823A005B37BD /* NewTemplate_One.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A58ECAA1D77823A005B37BD /* NewTemplate_One.m */; };
 		1A841DDA1D72EEE5009D9089 /* DiscoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A841DD91D72EEE5009D9089 /* DiscoverTableViewCell.m */; };
+		1A84C7451D7938CA009B8A5C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A84C7431D7938CA009B8A5C /* LoginViewController.m */; };
 		1AA450291D73D24700D86962 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1AA450281D73D24700D86962 /* fonts */; };
 		1AA4502E1D73FE6000D86962 /* XXCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4502C1D73FE6000D86962 /* XXCollectionViewCell.m */; };
 		1AA4502F1D73FE6000D86962 /* XXCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA4502D1D73FE6000D86962 /* XXCollectionViewCell.xib */; };
@@ -69,7 +70,6 @@
 		1AA552091D6FDF4900FD4831 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA552081D6FDF4900FD4831 /* AppDelegate.m */; };
 		1AA552111D6FDF4900FD4831 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA552101D6FDF4900FD4831 /* Assets.xcassets */; };
 		1AA552141D6FDF4900FD4831 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AA552121D6FDF4900FD4831 /* LaunchScreen.storyboard */; };
-		1AA552341D6FE7C200FD4831 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA552331D6FE7C200FD4831 /* LoginViewController.m */; };
 		1AB9E1DA1D707B7F00B4542C /* LearnShareUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9E1D91D707B7F00B4542C /* LearnShareUserInfo.m */; };
 		C495309330351F369A59D8DF /* libPods-LearnShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D21644F9B0789486386C29 /* libPods-LearnShare.a */; };
 /* End PBXBuildFile section */
@@ -183,6 +183,8 @@
 		1A58ECAA1D77823A005B37BD /* NewTemplate_One.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTemplate_One.m; sourceTree = "<group>"; };
 		1A841DD81D72EEE5009D9089 /* DiscoverTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTableViewCell.h; sourceTree = "<group>"; };
 		1A841DD91D72EEE5009D9089 /* DiscoverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTableViewCell.m; sourceTree = "<group>"; };
+		1A84C7431D7938CA009B8A5C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		1A84C7441D7938CA009B8A5C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1AA450281D73D24700D86962 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		1AA4502B1D73FE6000D86962 /* XXCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXCollectionViewCell.h; sourceTree = "<group>"; };
 		1AA4502C1D73FE6000D86962 /* XXCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXCollectionViewCell.m; sourceTree = "<group>"; };
@@ -197,8 +199,6 @@
 		1AA552131D6FDF4900FD4831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AA552151D6FDF4900FD4831 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AA5522B1D6FE0FF00FD4831 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		1AA552321D6FE7C200FD4831 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		1AA552331D6FE7C200FD4831 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1AB9E1D71D707B3A00B4542C /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
 		1AB9E1D81D707B7F00B4542C /* LearnShareUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnShareUserInfo.h; sourceTree = "<group>"; };
 		1AB9E1D91D707B7F00B4542C /* LearnShareUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnShareUserInfo.m; sourceTree = "<group>"; };
@@ -537,6 +537,23 @@
 			path = M80AttributedLabel;
 			sourceTree = "<group>";
 		};
+		1A84C7411D79388A009B8A5C /* FunctionModule */ = {
+			isa = PBXGroup;
+			children = (
+				1A84C7421D7938AD009B8A5C /* 注册登录 */,
+			);
+			path = FunctionModule;
+			sourceTree = "<group>";
+		};
+		1A84C7421D7938AD009B8A5C /* 注册登录 */ = {
+			isa = PBXGroup;
+			children = (
+				1A84C7441D7938CA009B8A5C /* LoginViewController.h */,
+				1A84C7431D7938CA009B8A5C /* LoginViewController.m */,
+			);
+			path = "注册登录";
+			sourceTree = "<group>";
+		};
 		1AA450271D73D22B00D86962 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,12 +638,11 @@
 		1AA552311D6FE4EC00FD4831 /* other */ = {
 			isa = PBXGroup;
 			children = (
-				1A40D80E1D7289AD00FC738F /* Base */,
-				1AA552321D6FE7C200FD4831 /* LoginViewController.h */,
-				1AA552331D6FE7C200FD4831 /* LoginViewController.m */,
 				1AB9E1D71D707B3A00B4542C /* CommonHeader.h */,
 				1AB9E1D81D707B7F00B4542C /* LearnShareUserInfo.h */,
 				1AB9E1D91D707B7F00B4542C /* LearnShareUserInfo.m */,
+				1A84C7411D79388A009B8A5C /* FunctionModule */,
+				1A40D80E1D7289AD00FC738F /* Base */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -785,6 +801,7 @@
 				1A58EC441D76A828005B37BD /* UIView+Attribute.m in Sources */,
 				1A40D7F41D72860A00FC738F /* SDBrowserImageView.m in Sources */,
 				1A40D8501D72B26500FC738F /* Reachability.m in Sources */,
+				1A84C7451D7938CA009B8A5C /* LoginViewController.m in Sources */,
 				1A58EC341D7680FF005B37BD /* M80AttributedLabelURL.m in Sources */,
 				1A40D7F61D72860A00FC738F /* SDWaitingView.m in Sources */,
 				1A40D8461D7294A000FC738F /* TimeModel.m in Sources */,
@@ -826,7 +843,6 @@
 				1A40D7F01D72860A00FC738F /* UIScrollView+MJRefresh.m in Sources */,
 				1A40D7DF1D72860A00FC738F /* MJRefreshAutoFooter.m in Sources */,
 				1A153AEF1D7526C000F9BE7B /* Base_Root_TableViewCell.m in Sources */,
-				1AA552341D6FE7C200FD4831 /* LoginViewController.m in Sources */,
 				1A58EC321D7680FF005B37BD /* M80AttributedLabel.m in Sources */,
 				1A58EC451D76A828005B37BD /* UIViewController+BaseNavigationController.m in Sources */,
 				1A40D7E71D72860A00FC738F /* MJRefreshBackGifFooter.m in Sources */,

@@ -40,11 +40,18 @@
     [self.view addGestureRecognizer:tap];
     
     
-    [self creatNavigationView];
+    [self creatTopAndBottmView];
     [self createLoginView];
     
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textfieldsDidChangeEditing:) name:UITextFieldTextDidChangeNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textfieldsDidChangeEditing:) name:UITextFieldTextDidChangeNotification object:self.pwdField];
     //    [self addView];
 }
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
+}
+
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
       [[UIApplication sharedApplication] setStatusBarHidden:TRUE];
@@ -56,6 +63,12 @@
     [[UIApplication sharedApplication] setStatusBarHidden:FALSE];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark-- button Action
 - (void)returnButtonPress:(UIButton *)sender{
     
     [self dismissViewControllerAnimated:YES completion:^{
@@ -64,15 +77,39 @@
     
 }
 
+#pragma mark-- notification
+- (void)textfieldsDidChangeEditing:(NSNotification*)notification{
+    UITextField *textField = notification.object;
+    
+    //有空格
+    //如果用户输入空格 自动屏蔽掉
+    //这里可以提示用户
+    NSRange range = [textField.text rangeOfString:@" "];
+    if(range.location !=NSNotFound){
+    
+        textField.text = [textField.text substringToIndex:range.location];
+    }
+    
+    //如果用户输入字数超限
+    if(textField.text.length >15){
+        NSLog(@"您输入的字数超出限制");
+        textField.text = [textField.text substringToIndex:textField.text.length-1];
+    }
+}
+
 #pragma mark-- UITextFieldDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     textField.placeholder = @"";
+
 }
 
+
+
 - (void)textFieldDidEndEditing:(UITextField *)textField{
+    
     if([textField.text isEqualToString:@""]  || textField.text == nil){
         if(textField == self.userField){
-            self.userField.placeholder = @"Username";
+            self.userField.placeholder = @"User name";
         }else if (textField == self.pwdField){
             self.pwdField.placeholder = @"Password";
         }
@@ -88,7 +125,7 @@
     }
 }
 
-- (void)creatNavigationView {
+- (void)creatTopAndBottmView {
     
     //return button
     UIButton *returnButon = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -106,7 +143,7 @@
     //title
     UILabel *titleLab = [UILabel new];
     titleLab.text = @"用户登录";
-    titleLab.font = [UIFont fontWithName:THEME_FONT_STRING size:20];
+    titleLab.font = [UIFont fontWithName:THEME_FONT_STRING size:21];
     [self.view addSubview:titleLab];
     
     [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -171,6 +208,7 @@
     self.pwdField = [UITextField new];
     self.pwdField.placeholder = @"Password";
     self.pwdField.delegate = self;
+    [self.pwdField setSecureTextEntry:YES];
     self.pwdField.textAlignment = NSTextAlignmentCenter;
     [loginGroundView addSubview:self.userField];
     [loginGroundView addSubview:self.pwdField];
@@ -272,11 +310,6 @@
 //        make.height.mas_equalTo(35);
 //    }];
 //}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 /*
  #pragma mark - Navigation
