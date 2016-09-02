@@ -62,7 +62,7 @@
         //            }
         //        }
         UIView *line = [UIView new];
-        line.backgroundColor = THEME_PLACEHOLDER_FONT_COLOR;
+        line.backgroundColor = [UIColor colorWithRed:233/255.0 green:234/255.0 blue:235/255.0 alpha:1];
         [self addSubview:line];
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(pace);

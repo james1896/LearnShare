@@ -33,7 +33,7 @@
 
 
 
-#pragma mark -- 字体 类
+#pragma mark -- 字体类
 #define THEME_FONT_STRING                                                                   @"GillSans-LightItalic"
 
 #pragma mark -- 颜色类
@@ -46,7 +46,7 @@
 
 #define THEME_BACKGROUND_COLOR                                                   [UIColor colorWithRed:29/255.0 green:169/255.0 blue:252/255.0 alpha:1]
 #define THEME_FONT_COLOR                                                                    [UIColor colorWithRed:40/255.0 green:40/255.0 blue:40/255.0 alpha:1]
-#define THEME_PLACEHOLDER_FONT_COLOR                                    [UIColor colorWithRed:233/255.0 green:234/255.0 blue:235/255.0 alpha:1]
+#define THEME_PLACEHOLDER_FONT_COLOR                                    [UIColor colorWithRed:200/255.0 green:201/255.0 blue:202/255.0 alpha:1]
 
 
 

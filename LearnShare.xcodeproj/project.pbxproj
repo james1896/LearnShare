@@ -62,6 +62,8 @@
 		1A58ECAB1D77823A005B37BD /* NewTemplate_One.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A58ECAA1D77823A005B37BD /* NewTemplate_One.m */; };
 		1A841DDA1D72EEE5009D9089 /* DiscoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A841DD91D72EEE5009D9089 /* DiscoverTableViewCell.m */; };
 		1A84C7451D7938CA009B8A5C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A84C7431D7938CA009B8A5C /* LoginViewController.m */; };
+		1A84C7481D7945A3009B8A5C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A84C7471D7945A3009B8A5C /* RegisterViewController.m */; };
+		1A84C74B1D7947EC009B8A5C /* LoginAndRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A84C74A1D7947EC009B8A5C /* LoginAndRegisterViewController.m */; };
 		1AA450291D73D24700D86962 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1AA450281D73D24700D86962 /* fonts */; };
 		1AA4502E1D73FE6000D86962 /* XXCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4502C1D73FE6000D86962 /* XXCollectionViewCell.m */; };
 		1AA4502F1D73FE6000D86962 /* XXCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA4502D1D73FE6000D86962 /* XXCollectionViewCell.xib */; };
@@ -185,6 +187,10 @@
 		1A841DD91D72EEE5009D9089 /* DiscoverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTableViewCell.m; sourceTree = "<group>"; };
 		1A84C7431D7938CA009B8A5C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1A84C7441D7938CA009B8A5C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		1A84C7461D7945A3009B8A5C /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		1A84C7471D7945A3009B8A5C /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		1A84C7491D7947EC009B8A5C /* LoginAndRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginAndRegisterViewController.h; sourceTree = "<group>"; };
+		1A84C74A1D7947EC009B8A5C /* LoginAndRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginAndRegisterViewController.m; sourceTree = "<group>"; };
 		1AA450281D73D24700D86962 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		1AA4502B1D73FE6000D86962 /* XXCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXCollectionViewCell.h; sourceTree = "<group>"; };
 		1AA4502C1D73FE6000D86962 /* XXCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXCollectionViewCell.m; sourceTree = "<group>"; };
@@ -550,6 +556,10 @@
 			children = (
 				1A84C7441D7938CA009B8A5C /* LoginViewController.h */,
 				1A84C7431D7938CA009B8A5C /* LoginViewController.m */,
+				1A84C7461D7945A3009B8A5C /* RegisterViewController.h */,
+				1A84C7471D7945A3009B8A5C /* RegisterViewController.m */,
+				1A84C7491D7947EC009B8A5C /* LoginAndRegisterViewController.h */,
+				1A84C74A1D7947EC009B8A5C /* LoginAndRegisterViewController.m */,
 			);
 			path = "注册登录";
 			sourceTree = "<group>";
@@ -797,6 +807,7 @@
 				1A40D84C1D72B08100FC738F /* BaseViewController.m in Sources */,
 				1A40D7E21D72860A00FC738F /* MJRefreshFooter.m in Sources */,
 				1A40D7F21D72860A00FC738F /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				1A84C74B1D7947EC009B8A5C /* LoginAndRegisterViewController.m in Sources */,
 				1A40D7E61D72860A00FC738F /* MJRefreshAutoStateFooter.m in Sources */,
 				1A58EC441D76A828005B37BD /* UIView+Attribute.m in Sources */,
 				1A40D7F41D72860A00FC738F /* SDBrowserImageView.m in Sources */,
@@ -831,6 +842,7 @@
 				1A40D8491D7294A000FC738F /* LearnViewController.m in Sources */,
 				1A40D7EA1D72860A00FC738F /* MJRefreshGifHeader.m in Sources */,
 				1A40D8001D7286A500FC738F /* XNLoopBannerView.m in Sources */,
+				1A84C7481D7945A3009B8A5C /* RegisterViewController.m in Sources */,
 				1A40D7F11D72860A00FC738F /* UIView+MJExtension.m in Sources */,
 				1A841DDA1D72EEE5009D9089 /* DiscoverTableViewCell.m in Sources */,
 				1A58EC7D1D76D26B005B37BD /* AcountSettingViewController.m in Sources */,

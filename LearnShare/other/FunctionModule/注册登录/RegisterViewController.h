@@ -6,8 +6,10 @@
 //  Copyright © 2016年 james. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LoginAndRegisterViewController.h"
 
-@interface RegisterViewController : UIViewController
+@interface RegisterViewController : LoginAndRegisterViewController
+
+@property(nonatomic,strong) UIViewController *dismissController;
 
 @end

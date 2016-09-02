@@ -6,8 +6,8 @@
 //  Copyright © 2016年 james. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LoginAndRegisterViewController.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : LoginAndRegisterViewController
 
 @end

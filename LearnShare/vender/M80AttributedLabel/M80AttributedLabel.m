@@ -1098,7 +1098,21 @@ static dispatch_queue_t get_m80_attributed_label_parse_queue() \
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [super touchesCancelled:touches withEvent:event];
+//    [super touchesCancelled:touches withEvent:event];
+//    if (self.touchedLink)
+//    {
+//        self.touchedLink = nil;
+//        [self setNeedsDisplay];
+//    }
+    
+#warning 解决登录里面使用的问题  目前不知道什么原因
+    //不知道什么 在登录界面   总是掉用这个方法  所以把   touchesEnded方法 复制到这里
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self];
+    if(![self onLabelClick:point])
+    {
+        [super touchesEnded:touches withEvent:event];
+    }
     if (self.touchedLink)
     {
         self.touchedLink = nil;

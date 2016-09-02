@@ -9,14 +9,58 @@
 #import "RegisterViewController.h"
 
 @interface RegisterViewController ()
-
+@property(nonatomic,strong) UITextField *userField;
+@property(nonatomic,strong) UITextField *emailField;
+@property(nonatomic,strong) UITextField *pwdField;
+@property(nonatomic,strong) UITextField *confirmPwdField;
 @end
 
-@implementation RegisterViewController
+@implementation RegisterViewController{
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.userField = [self createTextField];
+    self.userField.placeholder = @"User name";
+    self.emailField = [self createTextField];
+    self.emailField.placeholder = @"Your name@Gmail.com";
+    self.pwdField = [self createTextField];
+    self.pwdField.placeholder = @"Password";
+    self.confirmPwdField = [self createTextField];
+    self.confirmPwdField.placeholder = @"Password Again";
+    
+   [self.view addSubview: [self createFormWithTextField:self.userField atIndex:0]];
+    [self.view addSubview:[self createFormWithTextField:self.emailField atIndex:1]];
+    [self.view addSubview:[self createFormWithTextField:self.pwdField atIndex:2]];
+    [self.view addSubview:[self createFormWithTextField:self.confirmPwdField atIndex:3]];
+    
+    
+    [self addReturnButtonTarget:self action:@selector(returnButtonPress:)];
+    [self addBottomButtonTarget:self action:@selector(registerButtonPress:)];
+
+}
+
+- (UITextField *)createTextField{
+    UITextField *field = [UITextField new];
+    field.textAlignment = NSTextAlignmentCenter;
+    return field;
+}
+- (void)registerButtonPress:(UIButton *)sender {
+    
+//    self.dismissController.view.hidden = YES;
+    
+    
+#warning 模态呈现方式
+    // A呈现B    B呈现C   C直接返回到A
+    //但是感觉这样做还是不好  应该还有更好的方法实现
+    [self.dismissController dismissViewControllerAnimated:NO completion:nil];
+    
+    [self returnButtonPress:sender];
+}
+
+- (void)returnButtonPress:(UIButton *)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

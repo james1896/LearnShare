@@ -7,196 +7,25 @@
 //
 
 #import "LoginViewController.h"
-#import "Masonry.h"
-#import "CommonHeader.h"
+#import "M80AttributedLabel.h"
+#import "RegisterViewController.h"
 
 #define RGB(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
-@interface LoginViewController ()<UITextFieldDelegate>
+@interface LoginViewController ()<UITextFieldDelegate,M80AttributedLabelDelegate>
 @property(nonatomic,strong) UITextField *userField;
 @property(nonatomic,strong) UITextField *pwdField;
 
 @end
 
-@implementation LoginViewController
-
+@implementation LoginViewController{
+    M80AttributedLabel *promptLab;
+}
 
 #pragma mark -- left cycle
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
-    self.view.backgroundColor = [UIColor whiteColor];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapView:)];
-    tap.numberOfTapsRequired = 1;
-    [self.view addGestureRecognizer:tap];
-    
-    
-    [self creatTopAndBottmView];
-    [self createLoginView];
-    
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textfieldsDidChangeEditing:) name:UITextFieldTextDidChangeNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textfieldsDidChangeEditing:) name:UITextFieldTextDidChangeNotification object:self.pwdField];
-    //    [self addView];
-}
-
--(void)dealloc{
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-      [[UIApplication sharedApplication] setStatusBarHidden:TRUE];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:FALSE];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark-- button Action
-- (void)returnButtonPress:(UIButton *)sender{
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-    
-}
-
-#pragma mark-- notification
-- (void)textfieldsDidChangeEditing:(NSNotification*)notification{
-    UITextField *textField = notification.object;
-    
-    //有空格
-    //如果用户输入空格 自动屏蔽掉
-    //这里可以提示用户
-    NSRange range = [textField.text rangeOfString:@" "];
-    if(range.location !=NSNotFound){
-    
-        textField.text = [textField.text substringToIndex:range.location];
-    }
-    
-    //如果用户输入字数超限
-    if(textField.text.length >15){
-        NSLog(@"您输入的字数超出限制");
-        textField.text = [textField.text substringToIndex:textField.text.length-1];
-    }
-}
-
-#pragma mark-- UITextFieldDelegate
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    textField.placeholder = @"";
-
-}
-
-
-
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    
-    if([textField.text isEqualToString:@""]  || textField.text == nil){
-        if(textField == self.userField){
-            self.userField.placeholder = @"User name";
-        }else if (textField == self.pwdField){
-            self.pwdField.placeholder = @"Password";
-        }
-        
-    }
-}
-#pragma mark -- add view
-- (void)tapView:(UITapGestureRecognizer *)gesture{
-    if(self.userField.isFirstResponder){
-        [self.userField resignFirstResponder];
-    } else if (self.pwdField.isFirstResponder){
-        [self.pwdField resignFirstResponder];
-    }
-}
-
-- (void)creatTopAndBottmView {
-    
-    //return button
-    UIButton *returnButon = [UIButton buttonWithType:UIButtonTypeCustom];
-    [returnButon setImage:[UIImage imageNamed:@"return"] forState:UIControlStateNormal];
-    [returnButon addTarget:self action:@selector(returnButtonPress:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:returnButon];
-    
-    [returnButon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(20);
-        make.left.equalTo(self.view).offset(10);
-        make.width.height.mas_equalTo(25);
-    }];
-    
-    
-    //title
-    UILabel *titleLab = [UILabel new];
-    titleLab.text = @"用户登录";
-    titleLab.font = [UIFont fontWithName:THEME_FONT_STRING size:21];
-    [self.view addSubview:titleLab];
-    
-    [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(returnButon.mas_centerY);
-        make.centerX.equalTo(titleLab.superview);
-    }];
-    
-    
-    //
-    UIButton *loginButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    loginButton.backgroundColor = THEME_BACKGROUND_COLOR;
-    [loginButton setTitle:@"Get started" forState:UIControlStateNormal];
-    loginButton.titleLabel.font = [UIFont fontWithName:THEME_FONT_STRING size:22];
-    [self.view addSubview:loginButton];
-    
-    [loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.left.equalTo(loginButton.superview);
-        make.bottom.equalTo(loginButton.superview.mas_bottom);
-        make.height.mas_equalTo(60);
-    }];
-}
-
-- (void)createLoginView {
-    
-    UIView *loginGroundView = [UIView new];
-    [self.view addSubview:loginGroundView];
-    [loginGroundView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(loginGroundView.superview).offset(-80);
-        make.centerX.equalTo(loginGroundView.superview);
-        
-        make.width.mas_equalTo(SCREEN_WIDTH- 30*2);
-        make.height.mas_equalTo(120);
-    }];
-    
-    //line
-    UIView *lineView_moddle = [UIView new];
-    lineView_moddle.backgroundColor = [UIColor colorWithRed:228/255.0 green:228/255.0 blue:230/255.0 alpha:1];
-    [loginGroundView addSubview:lineView_moddle];
-    UIView *lineView_bottom = [UIView new];
-    lineView_bottom.backgroundColor = [UIColor colorWithRed:228/255.0 green:228/255.0 blue:230/255.0 alpha:1];
-    [loginGroundView addSubview:lineView_bottom];
-    
-    [lineView_moddle mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(lineView_moddle.superview);
-        make.centerY.equalTo(lineView_moddle.superview);
-        make.height.mas_equalTo(1);
-    }];
-    [lineView_bottom mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(lineView_bottom.superview);
-        make.bottom.equalTo(lineView_bottom.superview.mas_bottom);
-        make.height.mas_equalTo(1);
-    }];
-    
+    self.titleInfo = @"用户登录";
     
     //textfield
     self.userField = [UITextField new];
@@ -210,23 +39,62 @@
     self.pwdField.delegate = self;
     [self.pwdField setSecureTextEntry:YES];
     self.pwdField.textAlignment = NSTextAlignmentCenter;
-    [loginGroundView addSubview:self.userField];
-    [loginGroundView addSubview:self.pwdField];
+    [self.view addSubview: [self createFormWithTextField:self.userField atIndex:0]];
+    [self.view addSubview: [self createFormWithTextField:self.pwdField atIndex:1]];
     
-    int pace = 20;
-    [self.userField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(lineView_moddle.mas_top);
-        make.left.equalTo(self.userField.superview).offset(pace);
-        make.right.equalTo(self.userField.superview).offset(-pace);
-        make.height.mas_equalTo(30);
+    
+    //important
+    NSString *text =@"1.Click the icon to fire event\n2.Click the icon to fire event\n3.您还没有账号?   请注册\n";
+    promptLab = [M80AttributedLabel new];
+    promptLab.textColor = THEME_PLACEHOLDER_FONT_COLOR;
+    promptLab.lineSpacing = 5;
+    promptLab.textAlignment = kCTTextAlignmentCenter;
+    promptLab.font = [UIFont fontWithName:THEME_FONT_STRING size:13];
+    promptLab.text = text;
+    
+    NSRange range   = [text rangeOfString:@"请注册"];
+    [promptLab addCustomLink:[NSValue valueWithRange:range]
+                    forRange:range];
+    promptLab.delegate = self;
+    [self.view addSubview:promptLab];
+    
+    [promptLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.pwdField.mas_bottom).offset(80);
+        make.left.equalTo(self.pwdField.mas_left);
+        make.width.mas_equalTo(self.pwdField.mas_width);
+        
+        make.bottom.equalTo(self.bottom_button_top);
     }];
-    [self.pwdField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.pwdField.superview).offset(pace);
-        make.right.equalTo(self.pwdField.superview).offset(-pace);
-        make.bottom.equalTo(self.pwdField.superview.mas_bottom);
-        make.height.mas_equalTo(30);
-    }];
+    
+    [self addBottomButtonTarget:self action:@selector(loginButtonPress:)];
 }
+
+- (void)loginButtonPress:(UIButton *)sender {
+
+}
+
+#pragma mark -- M80AttributedLabelDelegate
+- (void)m80AttributedLabel:(M80AttributedLabel *)label
+             clickedOnLink:(id)linkData
+{
+    RegisterViewController *registerController  = [[RegisterViewController alloc]init];
+    registerController.dismissController = self;
+    [self presentViewController:registerController animated:YES completion:nil];
+
+}
+
+//- (void)textFieldDidEndEditing:(UITextField *)textField{
+//    
+//    if([textField.text isEqualToString:@""]  || textField.text == nil){
+//        if(textField == self.userField){
+//            self.userField.placeholder = @"user name";
+//        }else if (textField == self.pwdField){
+//            self.pwdField.placeholder = @"Password";
+//        }
+//        
+//    }
+//}
+
 
 //- (void)addView{
 //

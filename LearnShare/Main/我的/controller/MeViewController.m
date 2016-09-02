@@ -124,9 +124,9 @@
         //因为present一张界面出来的时候往往会占用较多资源，所以编译器默认放在后台处理。如果直接获取主线程的话，可以减少很多时间。
         dispatch_async(dispatch_get_main_queue(), ^{
             LoginViewController *loginController = [LoginViewController new];
-            [self presentViewController:loginController animated:YES completion:^{
-                
-            }];
+           
+//            [self presentViewController:loginController animated:YES completion:nil];
+            [self presentViewController:loginController animated:YES completion:nil];
         });
     }
 }
