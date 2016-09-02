@@ -53,7 +53,7 @@
     
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.navController addThemeNavigationBackItemWithTitle:@""];
+    [self.navController addThemeNavigationBackItemWithTitle:nil];
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     //需要修改
 //    [self.navController addThemeNavigationBackItemWithTitle:@"学友圈"];

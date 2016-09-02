@@ -34,9 +34,9 @@
     space.width = -5;
     
     //字
-    UIView *itemView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 120, 30)];
-       UILabel *btnLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 8, 120, 25)];
-    btnLab.text = itemTitle;
+    UIView *itemView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
+       UILabel *btnLab = [[UILabel alloc] initWithFrame:CGRectMake(-6, 6, 120, 25)];
+    btnLab.text = (itemTitle == nil?@"LearnShare":itemTitle);
     btnLab.textColor = [UIColor whiteColor];
     btnLab.font = [UIFont fontWithName:@"Zapfino" size:12];
     [itemView addSubview:btnLab];
