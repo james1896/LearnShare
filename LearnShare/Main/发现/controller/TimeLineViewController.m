@@ -13,15 +13,19 @@
 #import "UITableView+SDAutoTableViewCellHeight.h"
 #import "MJRefresh.h"
 
+#import "ChatToolBarView.h"
+
 
 #define color(r,g,b)     [UIColor colorWithRed:(r/255.0) green:g/255.0 blue:b/255.0 alpha:1]
 
-@interface  TimeLineViewController() <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@interface  TimeLineViewController() <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,ChatToolBarViewDelegate>
 @property (nonatomic, strong) NSMutableArray* modleArray;
 
 @property (nonatomic, strong) UITableView* tableView;
 
 @property (nonatomic, weak) UIScrollView* scrollView;
+
+@property (nonatomic,strong) ChatToolBarView *chatToolVarView;
 
 @end
 
@@ -59,6 +63,8 @@
 //    self.title = @"圈";
     
      [self.view addSubview:self.tableView];
+    
+   self.chatToolVarView = [ChatToolBarView createChatToolBarViewWithDelegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -121,6 +127,7 @@
         CGRect rect = [tableView convertRect:rectInTableView toView:[[tableView superview] superview]];
         NSLog(@"x:%f     y:%f",rect.origin.x,rect.origin.y);
         
+        [self.chatToolVarView showChatToolBarView];
         
     }];
     return cell;

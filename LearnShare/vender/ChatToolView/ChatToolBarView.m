@@ -11,6 +11,7 @@
 //屏幕尺寸
 #define screenH [UIScreen mainScreen].bounds.size.height
 #define screenW [UIScreen mainScreen].bounds.size.width
+
 @interface ChatToolBarView()<LiuqsEmotionViewdelegate,UITextViewDelegate>{
     CGFloat toolbar_height;
     BOOL is_keyboard_show;
@@ -153,7 +154,7 @@
 
 - (UIView *)toolBarView{
     if(!_toolBarView){
-        _toolBarView = [[UIView alloc]initWithFrame:CGRectMake(0, screenH-50, self.bounds.size.width, 50)];
+        _toolBarView = [[UIView alloc]initWithFrame:CGRectMake(0, self.bounds.size.height-50, self.bounds.size.width, 50)];
         _toolBarView.backgroundColor = [UIColor yellowColor];
         
         //textView
@@ -208,7 +209,7 @@
 #pragma mark -- lift cycle
 +(instancetype)createChatToolBarViewWithDelegate:(UIViewController<ChatToolBarViewDelegate> *)delegate{
     
-    ChatToolBarView *chatToolVarView =[[ChatToolBarView alloc]initWithFrame:CGRectMake(0, 0, screenW, screenH)];
+    ChatToolBarView *chatToolVarView =[[ChatToolBarView alloc]initWithFrame:CGRectMake(0, 0, screenW, screenH-64)];
     chatToolVarView.delegate = delegate;
     return chatToolVarView;
 }
@@ -219,7 +220,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor lightGrayColor];
-        [self addSubview:self.toolBarView];
+        self.hidden = YES;
+          [self addSubview:self.toolBarView];
     }
     return self;
 }
@@ -300,6 +302,13 @@
     toolbar_height = screenH-50;
 }
 
+//
+- (void)showChatToolBarView{
+    self.hidden = NO;
+    [self.delegate.view addSubview:self];
+    [self.delegate.view bringSubviewToFront:self];
+}
+
 -(void)hiddenChatToolBarView{
     
     is_keyboard_show = NO;
@@ -308,8 +317,9 @@
         [self hiddenKeyboard];
         self.toolBarView.frame = CGRectMake(0, toolbar_height, screenW, 50);
     } completion:^(BOOL finished) {
-        
+        [self removeFromSuperview];
     }];
+    
     
 }
 

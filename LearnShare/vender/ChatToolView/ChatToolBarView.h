@@ -21,18 +21,21 @@
 @end
 @interface ChatToolBarView : UIView
 
-
+//掉用此方法
+//不需要 addsubview
 NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)createChatToolBarViewWithDelegate:(UIViewController< ChatToolBarViewDelegate> *) delegate;
 
 NS_ASSUME_NONNULL_END
 
+//chatToolBarView 相关的通知
 - (void)addChatToolBarViewNotifications;
 
 - (void)removeChatToolBarVIewnotifications;
 
-
+//显示
+- (void)showChatToolBarView;
 //隐藏
 - (void)hiddenChatToolBarView;
 @end
