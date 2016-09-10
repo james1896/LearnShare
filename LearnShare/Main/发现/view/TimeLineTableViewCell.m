@@ -137,7 +137,7 @@ CGFloat max_content_height;
     .rightSpaceToView(self.contentView,20)
     .centerYEqualToView(timeLB)
     .widthIs(45)
-    .heightIs(15);
+    .heightIs(25);
     
     
     UIButton* likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -200,7 +200,8 @@ CGFloat max_content_height;
 }
 
 -(void)commentClick{
-    NSLog(@"%s",__func__);
+   
+    self.commentClickBlock(self.sd_indexPath);
 }
 
 -(void)likeClick{

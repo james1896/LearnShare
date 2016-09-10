@@ -10,9 +10,16 @@
 #import "TimeModel.h"
 #import "UIView+SDAutoLayout.h"
 @interface TimeLineTableViewCell : UITableViewCell
-+(instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView;
+
 @property (nonatomic, strong) TimeModel* model;
 
+//  全文/收起 按钮
 @property (nonatomic, copy) void(^showallClickBlock)(NSIndexPath* indexPath);
+
+//  评论按钮
+@property(nonatomic,copy) void(^commentClickBlock)(NSIndexPath* indexPath);
+
+//cell重用
++(instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView;
 
 @end

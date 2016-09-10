@@ -104,21 +104,31 @@
         cell.model = self.modleArray[indexPath.section];
     
     cell.sd_indexPath = indexPath;
+    
+    
     [cell setShowallClickBlock:^(NSIndexPath* indexPath){
-        
         //点击    全文／收起  按钮
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 //        [tableView reloadData];
+    }];
+    
+    [cell setCommentClickBlock:^(NSIndexPath *indexPath) {
+        NSLog(@"comment Click block");
+        
+        //得到 cell所在某个view的 rect
+        CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
+        //在这里 如果使用  [tableView superview]  y的0点在nav下面
+        CGRect rect = [tableView convertRect:rectInTableView toView:[[tableView superview] superview]];
+        NSLog(@"x:%f     y:%f",rect.origin.x,rect.origin.y);
+        
+        
     }];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
-    //在这里 如果使用  [tableView superview]  y的0点在nav下面
-    CGRect rect = [tableView convertRect:rectInTableView toView:[[tableView superview] superview]];
-   NSLog(@"x:%f     y:%f",rect.origin.x,rect.origin.y);
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
