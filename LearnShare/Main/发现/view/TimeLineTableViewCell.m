@@ -108,7 +108,7 @@ CGFloat max_content_height;
     [self.contentView addSubview:distanceLB];
    distanceLB.sd_layout
     .leftEqualToView(imageConetntView)
-    .topSpaceToView(imageConetntView,5)
+    .topSpaceToView(imageConetntView,50)
     .widthIs(180)
     .heightIs(20);
     

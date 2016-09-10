@@ -75,9 +75,7 @@
 //    }
 }
 //如果不需要使用回车键，可以用这个方法掉用 发送button
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
-    
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     //storage  用于textView的富文本显示
     NSLog(@"input text is :%@",text);
     if ([text isEqualToString:@"\n"]) {

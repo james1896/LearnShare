@@ -90,7 +90,7 @@
     
 }
 #pragma mark -- UITableViewDataSource,UITableViewDelegate
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
         return self.modleArray.count;
 }
 
@@ -105,10 +105,25 @@
     
     cell.sd_indexPath = indexPath;
     [cell setShowallClickBlock:^(NSIndexPath* indexPath){
-        [tableView reloadData];
+        
+        //点击    全文／收起  按钮
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//        [tableView reloadData];
     }];
     
+
+    
+ 
+    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
+    //在这里 如果使用  [tableView superview]  y的0点在nav下面
+    CGRect rect = [tableView convertRect:rectInTableView toView:[[tableView superview] superview]];
+   NSLog(@"x:%f     y:%f",rect.origin.x,rect.origin.y);
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

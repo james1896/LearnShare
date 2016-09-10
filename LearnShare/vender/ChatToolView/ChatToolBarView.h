@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+//支持表情键盘 和 gif
 @protocol ChatToolBarViewDelegate <NSObject>
 
+@required
 - (void)sendTextMessage;
 
+
+@optional
 - (void)sendGifMessage;
 
 @end
