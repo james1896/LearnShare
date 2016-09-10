@@ -6,8 +6,8 @@
 //  Copyright © 2016年 james. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Base_Detail_ViewController.h"
 
-@interface AboutUsViewController : UIViewController
+@interface AboutUsViewController : Base_Detail_ViewController
 
 @end

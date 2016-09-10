@@ -15,11 +15,16 @@
 #define screenRate screenW / 320
 
 //头文件
+
+//chatToolView
 #import "UIView+Extension.h"
 #import "UIImageView+PlayGIF.h"
 #import "LiuqsChangeStrTool.h"
 #import "LiuqsEmotionView.h"
 #import "UIImage+Extension.h"
+
+
+#import "UIViewController+BaseNavigationController.h"
 
 
 //颜色

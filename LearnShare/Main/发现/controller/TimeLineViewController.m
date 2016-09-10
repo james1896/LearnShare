@@ -13,7 +13,7 @@
 #import "UITableView+SDAutoTableViewCellHeight.h"
 #import "MJRefresh.h"
 
-#import "UIViewController+BaseNavigationController.h"
+
 #define color(r,g,b)     [UIColor colorWithRed:(r/255.0) green:g/255.0 blue:b/255.0 alpha:1]
 
 @interface  TimeLineViewController() <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
@@ -52,7 +52,7 @@
     
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.navController addThemeNavigationBackItemWithTitle:nil];
+
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     //需要修改
 //    [self.navController addThemeNavigationBackItemWithTitle:@"学友圈"];
@@ -110,11 +110,6 @@
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 //        [tableView reloadData];
     }];
-    
-
-    
- 
-    
     return cell;
 }
 

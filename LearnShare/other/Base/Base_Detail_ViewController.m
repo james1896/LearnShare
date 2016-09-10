@@ -1,34 +1,23 @@
 //
-//  BaseViewController.m
+//  Base_Detail_ViewController.m
 //  LearnShare
 //
-//  Created by James on 16/8/28.
+//  Created by James on 16/9/10.
 //  Copyright © 2016年 james. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "Base_Detail_ViewController.h"
 
-@interface BaseViewController ()
+@interface Base_Detail_ViewController ()
 
 @end
 
-@implementation BaseViewController
+@implementation Base_Detail_ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
-#warning 不知道为什么 放在baseTabbarController里面  不起作用
-
-    //去掉tabbar上面的黑线
-    NSArray  *tabArray=self.tabBarController.tabBar.subviews;
-    for ( id obj  in tabArray) {
-        if ([obj isKindOfClass:[UIImageView class]]) {
-            UIImageView *imageView=(UIImageView *) obj;
-            imageView.backgroundColor=[UIColor clearColor];
-        }
-    }
+        [self.navController addThemeNavigationBackItemWithTitle:nil];
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
