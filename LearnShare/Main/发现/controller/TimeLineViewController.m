@@ -13,14 +13,13 @@
 #import "UITableView+SDAutoTableViewCellHeight.h"
 #import "MJRefresh.h"
 
-
 #import "UIViewController+BaseNavigationController.h"
 #define color(r,g,b)     [UIColor colorWithRed:(r/255.0) green:g/255.0 blue:b/255.0 alpha:1]
 
 @interface  TimeLineViewController() <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
-@property (nonatomic, strong) NSMutableArray* leftModleArray;
+@property (nonatomic, strong) NSMutableArray* modleArray;
 
-@property (nonatomic, weak) UITableView* tableView;
+@property (nonatomic, strong) UITableView* tableView;
 
 @property (nonatomic, weak) UIScrollView* scrollView;
 
@@ -28,12 +27,12 @@
 
 @implementation TimeLineViewController
 
-- (NSMutableArray *)leftModleArray
+- (NSMutableArray *)modleArray
 {
-    if (!_leftModleArray) {
-        _leftModleArray = [NSMutableArray new];
+    if (!_modleArray) {
+        _modleArray = [NSMutableArray new];
     }
-    return _leftModleArray;
+    return _modleArray;
 }
 
 - (UITableView *)tableView{
@@ -64,7 +63,7 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self.leftModleArray addObjectsFromArray:[TimeModel models]];
+    [self.modleArray addObjectsFromArray:[TimeModel models]];
     [self.tableView reloadData];
 }
 -(void)setupRefresh:(UITableView*)tableView{
@@ -75,8 +74,8 @@
 #pragma mark -- 刷新
 -(void)loadNewLeft{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.leftModleArray removeAllObjects];
-        [self.leftModleArray addObjectsFromArray:[TimeModel models]];
+        [self.modleArray removeAllObjects];
+        [self.modleArray addObjectsFromArray:[TimeModel models]];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     });
@@ -84,7 +83,7 @@
 }
 -(void)loadMoreLeft{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.leftModleArray addObjectsFromArray:[TimeModel models]];
+        [self.modleArray addObjectsFromArray:[TimeModel models]];
         [self.tableView reloadData];
         [self.tableView.mj_footer endRefreshing];
     });
@@ -92,7 +91,7 @@
 }
 #pragma mark -- UITableViewDataSource,UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-        return self.leftModleArray.count;
+        return self.modleArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -102,7 +101,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TimeLineTableViewCell* cell = [TimeLineTableViewCell dequeueReusableCellWithTableView:tableView];
-        cell.model = self.leftModleArray[indexPath.section];
+        cell.model = self.modleArray[indexPath.section];
     
     cell.sd_indexPath = indexPath;
     [cell setShowallClickBlock:^(NSIndexPath* indexPath){
@@ -113,7 +112,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-        return [tableView cellHeightForIndexPath:indexPath model:self.leftModleArray[indexPath.section] keyPath:@"model" cellClass:[TimeLineTableViewCell class] contentViewWidth:[UIScreen mainScreen].bounds.size.width];
+        return [tableView cellHeightForIndexPath:indexPath model:self.modleArray[indexPath.section] keyPath:@"model" cellClass:[TimeLineTableViewCell class] contentViewWidth:[UIScreen mainScreen].bounds.size.width];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

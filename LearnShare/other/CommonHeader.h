@@ -45,6 +45,7 @@
 #define COLOR(R, G, B, A)                                                                               [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
 
 #define THEME_BACKGROUND_COLOR                                                   [UIColor colorWithRed:29/255.0 green:169/255.0 blue:252/255.0 alpha:1]
+#define TIMELINE_NAME_COLOR                                                                 [UIColor colorWithRed:29/255.0 green:169/255.0 blue:252/255.0 alpha:1]
 #define THEME_FONT_COLOR                                                                    [UIColor colorWithRed:40/255.0 green:40/255.0 blue:40/255.0 alpha:1]
 #define THEME_PLACEHOLDER_FONT_COLOR                                    [UIColor colorWithRed:200/255.0 green:201/255.0 blue:202/255.0 alpha:1]
 
