@@ -7,8 +7,8 @@
 //
 
 #import "Base_Root_TableViewCell.h"
-#import "Masonry.h"
-#import "CommonHeader.h"
+
+
 
 @implementation Base_Root_TableViewCell{
     UILabel *titleLabel;

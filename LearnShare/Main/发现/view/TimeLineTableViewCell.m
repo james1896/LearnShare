@@ -7,10 +7,9 @@
 //
 
 #import "TimeLineTableViewCell.h"
-#import "Masonry.h"
 #import "TimeImageContentView.h"
 #import "UIImageView+WebCache.h"
-#import "CommonHeader.h"
+
 #define color(r,g,b)     [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 CGFloat max_content_height;
 @interface TimeLineTableViewCell ()

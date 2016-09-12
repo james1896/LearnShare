@@ -7,7 +7,6 @@
 //
 
 #import "TimeLineViewController.h"
-#import "Masonry.h"
 #import "TimeLineTableViewCell.h"
 #import "TimeModel.h"
 #import "UITableView+SDAutoTableViewCellHeight.h"
@@ -65,6 +64,18 @@
      [self.view addSubview:self.tableView];
     
    self.chatToolVarView = [ChatToolBarView createChatToolBarViewWithDelegate:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self.chatToolVarView addChatToolBarViewNotifications];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    [self.chatToolVarView removeChatToolBarVIewnotifications];
 }
 
 - (void)viewDidAppear:(BOOL)animated{

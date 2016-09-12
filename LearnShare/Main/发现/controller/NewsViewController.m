@@ -8,7 +8,6 @@
 
 #import "NewsViewController.h"
 #import "M80AttributedLabel.h"
-#import "CommonHeader.h"
 
 
 @interface NewsViewController ()<M80AttributedLabelDelegate>

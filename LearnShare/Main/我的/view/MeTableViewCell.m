@@ -7,7 +7,6 @@
 //
 
 #import "MeTableViewCell.h"
-#import "Masonry.h"
 @implementation MeTableViewCell{
     UILabel *rightLabel;
 }

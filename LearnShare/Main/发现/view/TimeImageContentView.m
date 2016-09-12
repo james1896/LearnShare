@@ -7,7 +7,6 @@
 //
 
 #import "TimeImageContentView.h"
-#import "Masonry.h"
 #import "UIView+SDAutoLayout.h"
 #import "SDPhotoBrowser.h"
 #import "UIImageView+WebCache.h"

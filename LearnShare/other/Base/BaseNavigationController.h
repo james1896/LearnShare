@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CommonHeader.h"
+
 @interface BaseNavigationController : UINavigationController
 
 - (void)addThemeNavigationBackItemWithTitle:(NSString *)itemTitle;

@@ -9,12 +9,15 @@
 #import "ChatToolBarView.h"
 
 //屏幕尺寸
-#define screenH [UIScreen mainScreen].bounds.size.height
-#define screenW [UIScreen mainScreen].bounds.size.width
+
+
+#define emotionDownFrame CGRectMake(0, screenH, screenW, 0)
+#define emotionUpFrame CGRectMake(0, screenH - (EMOJI_KEYBOARD_HEIGHT), screenW, EMOJI_KEYBOARD_HEIGHT)
 
 @interface ChatToolBarView()<LiuqsEmotionViewdelegate,UITextViewDelegate>{
     CGFloat toolbar_height;
     BOOL is_keyboard_show;
+    CGFloat height;
 }
 
 @property(nonatomic) BOOL isEmotionViewShow;
@@ -154,7 +157,7 @@
 
 - (UIView *)toolBarView{
     if(!_toolBarView){
-        _toolBarView = [[UIView alloc]initWithFrame:CGRectMake(0, self.bounds.size.height-50, self.bounds.size.width, 50)];
+        _toolBarView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-STATUSBAR_HEIGHT-NAVBAR_HEIGHT-50, self.bounds.size.width, 50)];
         _toolBarView.backgroundColor = [UIColor yellowColor];
         
         //textView
@@ -177,6 +180,9 @@
         [emotionBtn setImage:[UIImage imageNamed:@"emotionBtn_se"] forState:UIControlStateSelected];
         [emotionBtn addTarget:self action:@selector(emotionBtnDidClicked:) forControlEvents:UIControlEventTouchUpInside];
         [_toolBarView addSubview:emotionBtn];
+        
+        //
+
     }
     return _toolBarView;
 }
@@ -209,7 +215,7 @@
 #pragma mark -- lift cycle
 +(instancetype)createChatToolBarViewWithDelegate:(UIViewController<ChatToolBarViewDelegate> *)delegate{
     
-    ChatToolBarView *chatToolVarView =[[ChatToolBarView alloc]initWithFrame:CGRectMake(0, 0, screenW, screenH-64)];
+    ChatToolBarView *chatToolVarView =[[ChatToolBarView alloc]initWithFrame:CGRectMake(0, 0, screenW, screenH)];
     chatToolVarView.delegate = delegate;
     return chatToolVarView;
 }
@@ -219,11 +225,20 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor clearColor];
         self.hidden = YES;
+        
           [self addSubview:self.toolBarView];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapChatToolView:)];
+        [self addGestureRecognizer:tap];
     }
     return self;
+}
+
+- (void)tapChatToolView:(UITapGestureRecognizer *)gesture{
+
+    [self hiddenChatToolBarView];
 }
 
 #pragma mark -- textView代理方法
@@ -307,6 +322,8 @@
     self.hidden = NO;
     [self.delegate.view addSubview:self];
     [self.delegate.view bringSubviewToFront:self];
+    
+    [self.toolBarTextView becomeFirstResponder];
 }
 
 -(void)hiddenChatToolBarView{

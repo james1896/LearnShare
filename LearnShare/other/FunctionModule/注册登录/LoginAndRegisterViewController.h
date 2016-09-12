@@ -7,9 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Masonry.h"
-#import "CommonHeader.h"
-
 #import "M80AttributedLabel.h"
 @interface LoginAndRegisterViewController : UIViewController
 

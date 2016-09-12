@@ -462,7 +462,6 @@
 		1AA552131D6FDF4900FD4831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AA552151D6FDF4900FD4831 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AA5522B1D6FE0FF00FD4831 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		1AB9E1D71D707B3A00B4542C /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
 		1AB9E1D81D707B7F00B4542C /* LearnShareUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnShareUserInfo.h; sourceTree = "<group>"; };
 		1AB9E1D91D707B7F00B4542C /* LearnShareUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnShareUserInfo.m; sourceTree = "<group>"; };
 		30D21644F9B0789486386C29 /* libPods-LearnShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LearnShare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1080,7 +1079,6 @@
 		1AA552311D6FE4EC00FD4831 /* other */ = {
 			isa = PBXGroup;
 			children = (
-				1AB9E1D71D707B3A00B4542C /* CommonHeader.h */,
 				1AB9E1D81D707B7F00B4542C /* LearnShareUserInfo.h */,
 				1AB9E1D91D707B7F00B4542C /* LearnShareUserInfo.m */,
 				1A84C7411D79388A009B8A5C /* FunctionModule */,
